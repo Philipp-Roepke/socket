@@ -1,6 +1,6 @@
 import socket
 
-try:
+def main():
     s = socket.socket()
     host = socket.gethostname()
     port = 8080
@@ -11,5 +11,17 @@ try:
 
     conn, addr = s.accept()
     print(addr, "Has connected")
-except KeyboardInterrupt:
-    pass
+        
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        print('Interrupted')
+        try:
+            sys.exit(0)
+        except SystemExit:
+            os._exit(0)
+            
+    
+        
+
